@@ -2,6 +2,7 @@
 
 
 import java.awt.Color;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 
 
@@ -22,6 +23,10 @@ public class dashBoardPage extends javax.swing.JInternalFrame {
      */
     public dashBoardPage() {
         initComponents();
+        
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
+        bi.setNorthPane(null);
         
     }
     
@@ -90,12 +95,12 @@ public class dashBoardPage extends javax.swing.JInternalFrame {
         });
         settings.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/icons8-gear-100.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/icons8-add-product-100.png"))); // NOI18N
         settings.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 90));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("SETTINGS");
+        jLabel4.setText("ADD PRODUCTS");
         settings.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 120, -1));
 
         jPanel2.add(settings);
@@ -113,12 +118,12 @@ public class dashBoardPage extends javax.swing.JInternalFrame {
         });
         manageUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/icons8-admin-settings-male-100.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/icons8-administrator-male-100.png"))); // NOI18N
         manageUser.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 90));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("MANAGE USER");
+        jLabel6.setText("ADMIN");
         manageUser.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 120, -1));
 
         jPanel2.add(manageUser);
@@ -136,7 +141,7 @@ public class dashBoardPage extends javax.swing.JInternalFrame {
         });
         reports.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/icons8-graph-report-100.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/icons8-business-report-100.png"))); // NOI18N
         reports.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 90));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N

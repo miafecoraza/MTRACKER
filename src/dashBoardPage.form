@@ -123,7 +123,7 @@
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/iconsfolder/icons8-gear-100.png"/>
+                  <Image iconType="3" name="/iconsfolder/icons8-add-product-100.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -138,7 +138,7 @@
                   <Font name="Century Gothic" size="12" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="SETTINGS"/>
+                <Property name="text" type="java.lang.String" value="ADD PRODUCTS"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -174,7 +174,7 @@
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/iconsfolder/icons8-admin-settings-male-100.png"/>
+                  <Image iconType="3" name="/iconsfolder/icons8-administrator-male-100.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -189,7 +189,7 @@
                   <Font name="Century Gothic" size="12" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="MANAGE USER"/>
+                <Property name="text" type="java.lang.String" value="ADMIN"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -225,7 +225,7 @@
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/iconsfolder/icons8-graph-report-100.png"/>
+                  <Image iconType="3" name="/iconsfolder/icons8-business-report-100.png"/>
                 </Property>
               </Properties>
               <Constraints>
