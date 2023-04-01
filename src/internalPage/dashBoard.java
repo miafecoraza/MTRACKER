@@ -1,8 +1,11 @@
+package internalPage;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import internalPage.loginForm;
 import java.awt.Color;
 import internalPage.*;
 import internalPage.dashBoardPages;
@@ -36,14 +39,14 @@ public class dashBoard extends javax.swing.JFrame {
         navbar = new javax.swing.JPanel();
         dashpane1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        reports = new javax.swing.JPanel();
+        addstocks = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        userpane1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         inventory = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        logout = new javax.swing.JPanel();
+        settings = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        stocks = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -74,53 +77,35 @@ public class dashBoard extends javax.swing.JFrame {
         });
         dashpane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("DASHBOARD");
-        dashpane1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 180, 14));
+        dashpane1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 40));
 
         navbar.add(dashpane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 180, 40));
 
-        reports.setBackground(new java.awt.Color(0, 102, 102));
-        reports.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                reportsMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                reportsMouseExited(evt);
-            }
-        });
-        reports.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("REPORTS");
-        reports.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 180, 14));
-
-        navbar.add(reports, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 180, 40));
-
-        userpane1.setBackground(new java.awt.Color(0, 102, 102));
-        userpane1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                userpane1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                userpane1MouseExited(evt);
-            }
-        });
-        userpane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("USER PAGE");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        addstocks.setBackground(new java.awt.Color(0, 102, 102));
+        addstocks.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                addstocksMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addstocksMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addstocksMouseExited(evt);
             }
         });
-        userpane1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 180, 14));
+        addstocks.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        navbar.add(userpane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 180, 40));
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("ADD STOCKS");
+        addstocks.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 40));
+
+        navbar.add(addstocks, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 180, 40));
 
         inventory.setBackground(new java.awt.Color(0, 102, 102));
         inventory.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -136,41 +121,66 @@ public class dashBoard extends javax.swing.JFrame {
         });
         inventory.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("INVENTORY");
-        inventory.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 180, 14));
+        inventory.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 40));
 
         navbar.add(inventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 180, 40));
 
-        logout.setBackground(new java.awt.Color(0, 102, 102));
-        logout.addMouseListener(new java.awt.event.MouseAdapter() {
+        settings.setBackground(new java.awt.Color(0, 102, 102));
+        settings.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutMouseClicked(evt);
+                settingsMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                logoutMouseEntered(evt);
+                settingsMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                logoutMouseExited(evt);
+                settingsMouseExited(evt);
             }
         });
-        logout.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        settings.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("LOGOUT");
-        logout.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 180, 14));
+        jLabel9.setText("SETTINGS");
+        settings.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 40));
 
-        navbar.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 180, 40));
+        navbar.add(settings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 180, 40));
+
+        stocks.setBackground(new java.awt.Color(0, 102, 102));
+        stocks.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                stocksMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                stocksMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                stocksMouseExited(evt);
+            }
+        });
+        stocks.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("STOCKS");
+        stocks.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 40));
+
+        navbar.add(stocks, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 180, 40));
 
         jPanel1.add(navbar);
-        navbar.setBounds(0, 0, 180, 470);
+        navbar.setBounds(0, 0, 180, 480);
 
         header.setBackground(new java.awt.Color(0, 204, 204));
         header.setLayout(null);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("__");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -179,9 +189,10 @@ public class dashBoard extends javax.swing.JFrame {
             }
         });
         header.add(jLabel6);
-        jLabel6.setBounds(690, 0, 30, 30);
+        jLabel6.setBounds(660, 0, 40, 40);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("X");
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -190,13 +201,14 @@ public class dashBoard extends javax.swing.JFrame {
             }
         });
         header.add(jLabel5);
-        jLabel5.setBounds(710, 0, 30, 30);
+        jLabel5.setBounds(700, 0, 40, 40);
 
         jLabel1.setFont(new java.awt.Font("Rockwell Condensed", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MILKTEA SALES TRACKER");
         header.add(jLabel1);
-        jLabel1.setBounds(110, -10, 550, 70);
+        jLabel1.setBounds(110, 0, 550, 40);
 
         jPanel1.add(header);
         header.setBounds(180, 0, 740, 40);
@@ -209,7 +221,7 @@ public class dashBoard extends javax.swing.JFrame {
         jLabel7.setBounds(0, 0, 750, 430);
 
         jPanel1.add(maindesktop);
-        maindesktop.setBounds(180, 40, 750, 430);
+        maindesktop.setBounds(180, 40, 750, 440);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -234,22 +246,6 @@ public class dashBoard extends javax.swing.JFrame {
         dashpane1.setBackground(navcolor);
     }//GEN-LAST:event_dashpane1MouseExited
 
-    private void reportsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportsMouseEntered
-        reports.setBackground(bodycolor);
-    }//GEN-LAST:event_reportsMouseEntered
-
-    private void reportsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportsMouseExited
-         reports.setBackground(navcolor);
-    }//GEN-LAST:event_reportsMouseExited
-
-    private void userpane1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userpane1MouseEntered
-        userpane1.setBackground(bodycolor);
-    }//GEN-LAST:event_userpane1MouseEntered
-
-    private void userpane1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userpane1MouseExited
-        userpane1.setBackground(navcolor);
-    }//GEN-LAST:event_userpane1MouseExited
-
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         setState(ICONIFIED);
     }//GEN-LAST:event_jLabel6MouseClicked
@@ -260,11 +256,6 @@ public class dashBoard extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_jLabel5MouseClicked
-
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        userPage up =new userPage();
-        maindesktop.add(up).setVisible(true);
-    }//GEN-LAST:event_jLabel4MouseClicked
 
     private void dashpane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashpane1MouseClicked
         dashBoardPages dbp = new dashBoardPages();
@@ -286,19 +277,44 @@ public class dashBoard extends javax.swing.JFrame {
         maindesktop.add(in).setVisible(true);
     }//GEN-LAST:event_inventoryMouseClicked
 
-    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-        loginForm lf = new loginForm();
-        lf.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_logoutMouseClicked
+    private void settingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsMouseClicked
+        accountSettings as = new accountSettings();
+        maindesktop.add(as).setVisible(true);
+    }//GEN-LAST:event_settingsMouseClicked
 
-    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
-        logout.setBackground(bodycolor);
-    }//GEN-LAST:event_logoutMouseEntered
+    private void settingsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsMouseEntered
+        settings.setBackground(bodycolor);
+    }//GEN-LAST:event_settingsMouseEntered
 
-    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
-       logout.setBackground(navcolor);
-    }//GEN-LAST:event_logoutMouseExited
+    private void settingsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsMouseExited
+       settings.setBackground(navcolor);
+    }//GEN-LAST:event_settingsMouseExited
+
+    private void addstocksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addstocksMouseExited
+        addstocks.setBackground(navcolor);
+    }//GEN-LAST:event_addstocksMouseExited
+
+    private void addstocksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addstocksMouseEntered
+        addstocks.setBackground(bodycolor);
+    }//GEN-LAST:event_addstocksMouseEntered
+
+    private void stocksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stocksMouseEntered
+         stocks.setBackground(bodycolor);
+    }//GEN-LAST:event_stocksMouseEntered
+
+    private void stocksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stocksMouseExited
+        stocks.setBackground(navcolor);
+    }//GEN-LAST:event_stocksMouseExited
+
+    private void addstocksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addstocksMouseClicked
+        addStock ad = new addStock();
+        maindesktop.add(ad).setVisible(true);
+    }//GEN-LAST:event_addstocksMouseClicked
+
+    private void stocksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stocksMouseClicked
+       Stocks st = new Stocks();
+       maindesktop.add(st).setVisible(true);
+    }//GEN-LAST:event_stocksMouseClicked
 
     /**
      * @param args the command line arguments
@@ -336,6 +352,7 @@ public class dashBoard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel addstocks;
     private javax.swing.JPanel dashpane1;
     private javax.swing.JPanel header;
     private javax.swing.JPanel inventory;
@@ -349,10 +366,9 @@ public class dashBoard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel logout;
     private javax.swing.JDesktopPane maindesktop;
     private javax.swing.JPanel navbar;
-    private javax.swing.JPanel reports;
-    private javax.swing.JPanel userpane1;
+    private javax.swing.JPanel settings;
+    private javax.swing.JPanel stocks;
     // End of variables declaration//GEN-END:variables
 }

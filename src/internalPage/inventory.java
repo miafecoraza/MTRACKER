@@ -5,7 +5,14 @@
  */
 package internalPage;
 
+import config.db_configuration;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -22,6 +29,29 @@ public class inventory extends javax.swing.JInternalFrame {
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
     }
+    
+    public void reset(){
+        id.setText("");
+        name.setText("");
+        itemcode.setText("");
+        price.setText("");
+       
+        
+    }
+    public void displayData(){
+       
+        try{
+       
+            db_configuration dbc = new db_configuration();
+            ResultSet rs = dbc.getData("SELECT * FROM tbl_inventory");
+            inventorytable.setModel(DbUtils.resultSetToTableModel(rs));
+       
+        }catch(SQLException ex){
+            System.out.println("Error Message: "+ex);
+       
+        }
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,177 +64,249 @@ public class inventory extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        name = new javax.swing.JTextField();
+        id = new javax.swing.JTextField();
         itemcode = new javax.swing.JTextField();
         price = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        addstock = new javax.swing.JButton();
-        additem = new javax.swing.JButton();
-        deleteitem = new javax.swing.JButton();
-        updateitem = new javax.swing.JButton();
+        insert = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
+        clear = new javax.swing.JButton();
+        update = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        inventorytable = new javax.swing.JTable();
+        display = new javax.swing.JButton();
+        name = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setAutoscrolls(true);
         jPanel1.setLayout(null);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/logo (1) (1).png"))); // NOI18N
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(20, 10, 100, 90);
+        jLabel4.setBounds(20, 80, 100, 90);
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 204));
-        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton1.setText("STOCKS");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(550, 50, 85, 27);
+        id.setEditable(false);
+        id.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jPanel1.add(id);
+        id.setBounds(110, 180, 230, 30);
 
-        jButton2.setBackground(new java.awt.Color(0, 204, 204));
-        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton2.setText("SALES");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(640, 50, 69, 27);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Chocolate",  new Integer(1),  new Integer(100)},
-                {"Strawberry",  new Integer(2),  new Integer(50)},
-                {"Matcha",  new Integer(3),  new Integer(60)}
-            },
-            new String [] {
-                "NAME", "ITEM CODE", "PRICE"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(350, 90, 360, 340);
-        jPanel1.add(name);
-        name.setBounds(140, 130, 200, 30);
+        itemcode.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(itemcode);
-        itemcode.setBounds(140, 170, 200, 30);
+        itemcode.setBounds(110, 260, 230, 30);
+
+        price.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(price);
-        price.setBounds(140, 210, 200, 30);
+        price.setBounds(110, 300, 230, 30);
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel1.setText("PRICE:");
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Price:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(50, 210, 90, 30);
+        jLabel1.setBounds(30, 300, 90, 30);
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel3.setText("ITEM CODE:");
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Item Code:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(50, 170, 90, 30);
+        jLabel3.setBounds(30, 260, 90, 30);
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel2.setText("NAME:");
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("ID:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(50, 130, 90, 30);
+        jLabel2.setBounds(30, 180, 90, 30);
 
-        addstock.setBackground(new java.awt.Color(102, 255, 102));
-        addstock.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        addstock.setText("ADD STOCK");
-        jPanel1.add(addstock);
-        addstock.setBounds(200, 270, 120, 27);
-
-        additem.setBackground(new java.awt.Color(102, 255, 102));
-        additem.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        additem.setText("ADD ITEM");
-        additem.addActionListener(new java.awt.event.ActionListener() {
+        insert.setBackground(new java.awt.Color(0, 204, 204));
+        insert.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        insert.setText("INSERT");
+        insert.setAutoscrolls(true);
+        insert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                additemActionPerformed(evt);
+                insertActionPerformed(evt);
             }
         });
-        jPanel1.add(additem);
-        additem.setBounds(60, 270, 130, 27);
+        jPanel1.add(insert);
+        insert.setBounds(130, 350, 100, 30);
 
-        deleteitem.setBackground(new java.awt.Color(102, 255, 102));
-        deleteitem.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        deleteitem.setText("DELETE ITEM");
-        jPanel1.add(deleteitem);
-        deleteitem.setBounds(200, 310, 120, 27);
-
-        updateitem.setBackground(new java.awt.Color(102, 255, 102));
-        updateitem.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        updateitem.setText("UPDATE ITEM");
-        updateitem.addActionListener(new java.awt.event.ActionListener() {
+        delete.setBackground(new java.awt.Color(0, 204, 204));
+        delete.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        delete.setText("DELETE");
+        delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateitemActionPerformed(evt);
+                deleteActionPerformed(evt);
             }
         });
-        jPanel1.add(updateitem);
-        updateitem.setBounds(60, 310, 130, 27);
+        jPanel1.add(delete);
+        delete.setBounds(240, 390, 100, 30);
+
+        clear.setBackground(new java.awt.Color(0, 204, 204));
+        clear.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        clear.setText("CLEAR");
+        clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearActionPerformed(evt);
+            }
+        });
+        jPanel1.add(clear);
+        clear.setBounds(130, 390, 100, 30);
+
+        update.setBackground(new java.awt.Color(0, 204, 204));
+        update.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        update.setText("UPDATE");
+        update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateActionPerformed(evt);
+            }
+        });
+        jPanel1.add(update);
+        update.setBounds(240, 350, 100, 30);
+
+        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("INVENTORY");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 40));
+
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(20, 20, 150, 40);
+
+        inventorytable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inventorytableMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(inventorytable);
+
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(350, 40, 370, 340);
+
+        display.setBackground(new java.awt.Color(0, 204, 204));
+        display.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        display.setText("DISPLAY");
+        display.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                displayActionPerformed(evt);
+            }
+        });
+        jPanel1.add(display);
+        display.setBounds(30, 350, 90, 30);
+
+        name.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jPanel1.add(name);
+        name.setBounds(110, 220, 230, 30);
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Name:");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(30, 220, 90, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 757, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
+       reset();
+    }//GEN-LAST:event_clearActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertActionPerformed
+       db_configuration dbc = new db_configuration();
+        dbc.insertData("INSERT INTO tbl_inventory(i_name, i_itemcode, i_price) "
+                + "VALUES ('"+name.getText()+"', '"+itemcode.getText()+"','"+price.getText()+"')");
+        displayData();
+        reset();
+    }//GEN-LAST:event_insertActionPerformed
 
-    private void updateitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateitemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateitemActionPerformed
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        int rowIndex = inventorytable.getSelectedRow();
+       if(rowIndex < 0){
+           JOptionPane.showMessageDialog(null, "Please select a data first");
+       }else{
+            TableModel model = inventorytable.getModel();
+            Object value = model.getValueAt(rowIndex, 0);
+            String id = value.toString();
+             int a=JOptionPane.showConfirmDialog(null,"Are you sure?");  
+                    if(a==JOptionPane.YES_OPTION){  
+                            db_configuration dbc = new db_configuration();
+                            dbc.deletedata(Integer.parseInt(id));
+                            displayData();
+                            reset();
+                    }
+       }
+    }//GEN-LAST:event_deleteActionPerformed
 
-    private void additemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_additemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_additemActionPerformed
+    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+        db_configuration dbc = new db_configuration();
+        int num = dbc.updateData("UPDATE tbl_inventory "
+                + "SET i_name= '"+name.getText()+"', i_itemcode='"+itemcode.getText()+"', "
+                        + "i_price='"+price.getText()+"'"
+                                + "WHERE i_id = '"+id.getText()+"'");
+       
+        if(num == 0){
+           
+        }else{
+           JOptionPane.showMessageDialog(null, "Updated Successfully!");
+           displayData();
+           reset();
+        }
+    }//GEN-LAST:event_updateActionPerformed
+
+    private void displayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayActionPerformed
+        displayData();
+
+    }//GEN-LAST:event_displayActionPerformed
+
+    private void inventorytableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inventorytableMouseClicked
+        int rowIndex = inventorytable.getSelectedRow();
+        if(rowIndex < 0){
+            
+        }else{
+            TableModel model = inventorytable.getModel();
+            id.setText(""+model.getValueAt(rowIndex,0));
+            name.setText(""+model.getValueAt(rowIndex,1));
+            itemcode.setText(""+model.getValueAt(rowIndex,2));
+            price.setText(""+model.getValueAt(rowIndex,3));           
+        }
+    }//GEN-LAST:event_inventorytableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton additem;
-    private javax.swing.JButton addstock;
-    private javax.swing.JButton deleteitem;
+    private javax.swing.JButton clear;
+    private javax.swing.JButton delete;
+    private javax.swing.JButton display;
+    private javax.swing.JTextField id;
+    private javax.swing.JButton insert;
+    private javax.swing.JTable inventorytable;
     private javax.swing.JTextField itemcode;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField name;
     private javax.swing.JTextField price;
-    private javax.swing.JButton updateitem;
+    private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
 }
