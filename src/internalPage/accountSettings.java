@@ -42,7 +42,7 @@ public class accountSettings extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        user_name = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -96,11 +96,11 @@ public class accountSettings extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel6);
         jLabel6.setBounds(50, 190, 110, 30);
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(150, 190, 510, 30);
+        user_name.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        user_name.setForeground(new java.awt.Color(255, 255, 255));
+        user_name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(user_name);
+        user_name.setBounds(150, 190, 510, 30);
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -194,10 +194,10 @@ public class accountSettings extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    public static javax.swing.JLabel user_name;
     // End of variables declaration//GEN-END:variables
 }

@@ -47,6 +47,7 @@ public class dashBoard extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         stocks = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        userni = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -173,6 +174,9 @@ public class dashBoard extends javax.swing.JFrame {
 
         navbar.add(stocks, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 180, 40));
 
+        userni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        navbar.add(userni, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 150, 30));
+
         jPanel1.add(navbar);
         navbar.setBounds(0, 0, 180, 480);
 
@@ -218,7 +222,7 @@ public class dashBoard extends javax.swing.JFrame {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/milktea (1).jpg"))); // NOI18N
         maindesktop.add(jLabel7);
-        jLabel7.setBounds(0, 0, 750, 430);
+        jLabel7.setBounds(0, 0, 740, 430);
 
         jPanel1.add(maindesktop);
         maindesktop.setBounds(180, 40, 750, 440);
@@ -273,7 +277,7 @@ public class dashBoard extends javax.swing.JFrame {
     }//GEN-LAST:event_inventoryMouseExited
 
     private void inventoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inventoryMouseClicked
-        inventory in = new inventory();
+        Reports in = new Reports();
         maindesktop.add(in).setVisible(true);
     }//GEN-LAST:event_inventoryMouseClicked
 
@@ -366,9 +370,10 @@ public class dashBoard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JDesktopPane maindesktop;
+    public static javax.swing.JDesktopPane maindesktop;
     private javax.swing.JPanel navbar;
     private javax.swing.JPanel settings;
     private javax.swing.JPanel stocks;
+    public static javax.swing.JLabel userni;
     // End of variables declaration//GEN-END:variables
 }

@@ -371,7 +371,7 @@ public class cashierss extends javax.swing.JFrame {
              int a=JOptionPane.showConfirmDialog(null,"Are you sure?");  
                     if(a==JOptionPane.YES_OPTION){  
                             db_configuration dbc = new db_configuration();
-                            dbc.deleteData(Integer.parseInt(id));
+                            dbc.DeleteData(Integer.parseInt(id));
                             displayData();
                             reset();
                     }    

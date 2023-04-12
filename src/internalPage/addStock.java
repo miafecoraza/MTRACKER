@@ -152,43 +152,43 @@ public class addStock extends javax.swing.JInternalFrame {
 
         quantity.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(quantity);
-        quantity.setBounds(480, 220, 240, 30);
+        quantity.setBounds(470, 180, 240, 30);
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Quantity:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(390, 220, 90, 30);
+        jLabel6.setBounds(380, 180, 90, 30);
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Buying Price:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(390, 260, 90, 30);
+        jLabel7.setBounds(380, 220, 90, 30);
 
         buy.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(buy);
-        buy.setBounds(480, 260, 240, 30);
+        buy.setBounds(470, 220, 240, 30);
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Selling Price:");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(390, 300, 90, 30);
+        jLabel8.setBounds(380, 260, 90, 30);
 
         sell.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(sell);
-        sell.setBounds(480, 300, 240, 30);
+        sell.setBounds(470, 260, 240, 30);
 
         total.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(total);
-        total.setBounds(480, 340, 240, 30);
+        total.setBounds(470, 300, 240, 30);
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Total Price:");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(390, 340, 90, 30);
+        jLabel9.setBounds(380, 300, 90, 30);
 
         jPanel2.setBackground(new java.awt.Color(0, 204, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -315,21 +315,7 @@ public class addStock extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_displayActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
-        int rowIndex = tbl_stock.getSelectedRow();
-       if(rowIndex < 0){
-           JOptionPane.showMessageDialog(null, "Please select a data first");
-       }else{
-            TableModel model = tbl_stock.getModel();
-            Object value = model.getValueAt(rowIndex, 0);
-            String id = value.toString();
-             int a=JOptionPane.showConfirmDialog(null,"Are you sure?");  
-                    if(a==JOptionPane.YES_OPTION){  
-                            db_configuration dbc = new db_configuration();
-                            dbc.deletedData(Integer.parseInt(id));
-                            displayData();
-                            reset();
-                    }    
-       }       
+        
     }//GEN-LAST:event_deleteActionPerformed
 
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed

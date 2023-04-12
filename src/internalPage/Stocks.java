@@ -90,6 +90,8 @@ public class Stocks extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(750, 440));
+
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
         jPanel1.setLayout(null);
 
@@ -102,7 +104,7 @@ public class Stocks extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(delete);
-        delete.setBounds(70, 330, 90, 30);
+        delete.setBounds(100, 380, 90, 30);
 
         milktea_table.setBackground(new java.awt.Color(0, 204, 204));
         milktea_table.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -113,7 +115,7 @@ public class Stocks extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(milktea_table);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(280, 110, 440, 300);
+        jScrollPane1.setBounds(30, 100, 690, 140);
 
         DELETE.setBackground(new java.awt.Color(0, 204, 204));
         DELETE.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -124,11 +126,11 @@ public class Stocks extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(DELETE);
-        DELETE.setBounds(530, 70, 90, 30);
+        DELETE.setBounds(560, 380, 90, 30);
 
         msize.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(msize);
-        msize.setBounds(90, 280, 180, 30);
+        msize.setBounds(440, 290, 230, 30);
 
         mid.setEditable(false);
         mid.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -138,11 +140,11 @@ public class Stocks extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(mid);
-        mid.setBounds(90, 120, 180, 30);
+        mid.setBounds(120, 250, 230, 30);
 
         mflavor.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(mflavor);
-        mflavor.setBounds(90, 160, 180, 30);
+        mflavor.setBounds(120, 290, 230, 30);
 
         mprice.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         mprice.addActionListener(new java.awt.event.ActionListener() {
@@ -151,11 +153,11 @@ public class Stocks extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(mprice);
-        mprice.setBounds(90, 200, 180, 30);
+        mprice.setBounds(120, 330, 230, 30);
 
         mquan.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(mquan);
-        mquan.setBounds(90, 240, 180, 30);
+        mquan.setBounds(440, 250, 230, 30);
 
         jButton2.setBackground(new java.awt.Color(0, 204, 204));
         jButton2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -166,7 +168,7 @@ public class Stocks extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(70, 370, 90, 30);
+        jButton2.setBounds(220, 380, 90, 30);
 
         update.setBackground(new java.awt.Color(0, 204, 204));
         update.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -177,7 +179,7 @@ public class Stocks extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(update);
-        update.setBounds(170, 330, 90, 30);
+        update.setBounds(450, 380, 90, 30);
 
         insert.setBackground(new java.awt.Color(0, 204, 204));
         insert.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -188,48 +190,48 @@ public class Stocks extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(insert);
-        insert.setBounds(170, 370, 90, 30);
+        insert.setBounds(330, 380, 90, 30);
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Size:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(20, 280, 70, 30);
+        jLabel2.setBounds(370, 290, 70, 30);
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("ID:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(20, 120, 70, 30);
+        jLabel3.setBounds(50, 250, 70, 30);
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Flavor:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(20, 160, 70, 30);
+        jLabel4.setBounds(50, 290, 70, 30);
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Price:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(20, 200, 70, 30);
+        jLabel5.setBounds(50, 330, 70, 30);
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Quantity:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(20, 240, 70, 30);
+        jLabel6.setBounds(370, 250, 70, 30);
 
         save.setBackground(new java.awt.Color(0, 204, 204));
         save.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        save.setText("SAVE");
+        save.setText("CASHIER");
         save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveActionPerformed(evt);
             }
         });
         jPanel1.add(save);
-        save.setBounds(630, 70, 90, 30);
+        save.setBounds(630, 60, 90, 30);
 
         jPanel2.setBackground(new java.awt.Color(0, 204, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -247,9 +249,7 @@ public class Stocks extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,10 +293,7 @@ public class Stocks extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_mpriceActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-     reset();       
-       
-       
-       
+     reset();        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed

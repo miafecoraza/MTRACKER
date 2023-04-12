@@ -5,6 +5,13 @@
  */
 package internalPage;
 
+
+import config.db_login;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -44,16 +51,16 @@ public class registrationForm extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        password = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        repassword = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        signup = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         no = new javax.swing.JTextField();
         clear = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         address = new javax.swing.JTextArea();
+        password = new javax.swing.JPasswordField();
+        jLabel7 = new javax.swing.JLabel();
+        repassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -98,88 +105,79 @@ public class registrationForm extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("First Name:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(40, 90, 110, 30);
+        jLabel2.setBounds(40, 110, 110, 30);
 
         firstname.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jPanel1.add(firstname);
-        firstname.setBounds(150, 90, 220, 30);
+        firstname.setBounds(150, 110, 220, 30);
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Last Name:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(40, 130, 110, 30);
+        jLabel3.setBounds(40, 150, 110, 30);
 
         lastname.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jPanel1.add(lastname);
-        lastname.setBounds(150, 130, 220, 30);
+        lastname.setBounds(150, 150, 220, 30);
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Username:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(40, 170, 110, 30);
+        jLabel4.setBounds(40, 190, 110, 30);
 
         username.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jPanel1.add(username);
-        username.setBounds(150, 170, 220, 30);
+        username.setBounds(150, 190, 220, 30);
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Email:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(40, 210, 110, 30);
+        jLabel5.setBounds(40, 230, 110, 30);
 
         email.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jPanel1.add(email);
-        email.setBounds(150, 210, 220, 30);
+        email.setBounds(150, 230, 220, 30);
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Password:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(40, 250, 110, 30);
+        jLabel6.setBounds(40, 270, 110, 30);
 
-        password.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jPanel1.add(password);
-        password.setBounds(150, 250, 220, 30);
-
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Retype Password:");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(40, 290, 110, 30);
-
-        repassword.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jPanel1.add(repassword);
-        repassword.setBounds(150, 290, 220, 30);
-
-        jButton1.setBackground(new java.awt.Color(0, 204, 204));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setText("SIGN UP");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        signup.setBackground(new java.awt.Color(0, 204, 204));
+        signup.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        signup.setText("SIGN UP");
+        signup.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signupMouseClicked(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(600, 270, 100, 30);
+        signup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signupActionPerformed(evt);
+            }
+        });
+        jPanel1.add(signup);
+        signup.setBounds(590, 240, 100, 30);
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Address:");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(390, 100, 70, 30);
+        jLabel8.setBounds(390, 110, 70, 30);
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Phone No.");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(40, 330, 80, 30);
+        jLabel9.setBounds(40, 350, 110, 30);
 
         no.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jPanel1.add(no);
-        no.setBounds(150, 330, 220, 30);
+        no.setBounds(150, 350, 220, 30);
 
         clear.setBackground(new java.awt.Color(0, 204, 204));
         clear.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -190,14 +188,24 @@ public class registrationForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(clear);
-        clear.setBounds(490, 270, 100, 30);
+        clear.setBounds(460, 240, 100, 30);
 
         address.setColumns(20);
         address.setRows(5);
         jScrollPane2.setViewportView(address);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(470, 90, 220, 96);
+        jScrollPane2.setBounds(470, 110, 220, 96);
+        jPanel1.add(password);
+        password.setBounds(150, 270, 220, 30);
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Retype Password:");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(40, 310, 110, 30);
+        jPanel1.add(repassword);
+        repassword.setBounds(150, 310, 220, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -219,19 +227,76 @@ public class registrationForm extends javax.swing.JFrame {
         lastname.setText(null);
         username.setText(null);
         email.setText(null);
-        password.setText(null);
-        repassword.setText(null);     
+        password.setText(null);      
         no.setText(null);
         address.setText(null);
         
         
     }//GEN-LAST:event_clearActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        loginForm lf = new loginForm();
-        lf.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
+        if (firstname.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Firstname!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(lastname.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Lastname!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if (username.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Username!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(email.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Contact!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;      
+        }else if(password.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Email!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(repassword.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Password!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(no.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Password!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(address.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Password!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }                  
+        
+        String fname = firstname.getText();
+        String lname = lastname.getText();
+        String uname = username.getText();
+        String ema = email.getText();      
+        String pass = String.valueOf(password.getPassword()); 
+        String repass = String.valueOf(repassword.getPassword()); 
+        String cont = no.getText();
+        String add = address.getText();
+         
+        PreparedStatement ps;
+        ResultSet rs;
+        String registerUserQuery = "INSERT INTO `user_db`(`u_firstname`, `u_lastname`, `u_username`, `u_contact`, `u_email`, `u_password`, `u_contact`, `u_address`) VALUES (?,?,?,?,?,?)";
+                 
+                 try {
+                     
+                     ps = db_login.getConnection().prepareStatement(registerUserQuery);
+                     ps.setString(1, fname);
+                     ps.setString(2, lname);
+                     ps.setString(3, uname);
+                     ps.setString(4, ema);
+                     ps.setString(5, pass);
+                     ps.setString(6, repass);
+                     ps.setString(7, cont);
+                     ps.setString(8, add);
+                     
+                           if(ps.executeUpdate() != 0){
+                             JOptionPane.showMessageDialog(null, "Your Account Has Been Created");
+                         }else{
+                             JOptionPane.showMessageDialog(null, "Error: Check Your Information");
+                         }
+                 } catch (SQLException ex) {
+                     Logger.getLogger(registrationForm.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+ 
+             
+    }//GEN-LAST:event_signupActionPerformed
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         setState(ICONIFIED);
@@ -244,9 +309,10 @@ public class registrationForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel11MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    private void signupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupMouseClicked
+        
+    }//GEN-LAST:event_signupMouseClicked
+      
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -284,7 +350,6 @@ public class registrationForm extends javax.swing.JFrame {
     private javax.swing.JButton clear;
     private javax.swing.JTextField email;
     private javax.swing.JTextField firstname;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -301,8 +366,9 @@ public class registrationForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField lastname;
     private javax.swing.JTextField no;
-    private javax.swing.JTextField password;
-    private javax.swing.JTextField repassword;
+    private javax.swing.JPasswordField password;
+    private javax.swing.JPasswordField repassword;
+    private javax.swing.JButton signup;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

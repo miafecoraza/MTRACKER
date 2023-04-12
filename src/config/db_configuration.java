@@ -80,22 +80,7 @@ public class db_configuration {
     }
      return num;
 }
-    public void deletedata(int id){
-        try{
-            PreparedStatement stmt = connection.prepareStatement("DELETE FROM tbl_inventory WHERE i_id=?");
-            stmt.setInt(1,id);
-            int rowsDeleted = stmt.executeUpdate();
-            if (rowsDeleted > 0){
-               System.out.println(rowsDeleted +"rows were deleted.");                
-            }else{
-                System.out.println("No wos were deleted.");
-            }
-            stmt.close();
-            connection.close();         
-        }catch(SQLException e){
-            System.out.println("Error deleting data:" +e.getMessage());
-        }   
-    }
+
     public void DeleteData(int id){
         try{
             PreparedStatement stmt = connection.prepareStatement("DELETE FROM tbl_cashier WHERE c_id=?");
@@ -112,22 +97,7 @@ public class db_configuration {
             System.out.println("Error deleting data:" +e.getMessage());
         }   
     }
-    public void deletedData(int id){
-        try{
-            PreparedStatement stmt = connection.prepareStatement("DELETE FROM tbl_addstock WHERE a_id=?");
-            stmt.setInt(1,id);
-            int rowsDeleted = stmt.executeUpdate();
-            if (rowsDeleted > 0){
-               System.out.println(rowsDeleted +"rows were deleted.");                
-            }else{
-                System.out.println("No wos were deleted.");
-            }
-            stmt.close();
-            connection.close();         
-        }catch(SQLException e){
-            System.out.println("Error deleting data:" +e.getMessage());
-        }   
-    }
+    
 }
 
 
