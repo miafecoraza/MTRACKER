@@ -174,6 +174,8 @@ public class dashBoard extends javax.swing.JFrame {
 
         navbar.add(stocks, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 180, 40));
 
+        userni.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        userni.setForeground(new java.awt.Color(255, 255, 255));
         userni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         navbar.add(userni, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 150, 30));
 

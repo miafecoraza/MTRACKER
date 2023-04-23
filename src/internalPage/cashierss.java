@@ -8,7 +8,9 @@ package internalPage;
 import config.db_configuration;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
@@ -86,6 +88,7 @@ public class cashierss extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        display1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -154,14 +157,14 @@ public class cashierss extends javax.swing.JFrame {
 
         display.setBackground(new java.awt.Color(0, 204, 204));
         display.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        display.setText("DISPLAY");
+        display.setText("BACK");
         display.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 displayActionPerformed(evt);
             }
         });
         jPanel2.add(display);
-        display.setBounds(140, 370, 90, 30);
+        display.setBounds(140, 410, 90, 30);
 
         clear.setBackground(new java.awt.Color(0, 204, 204));
         clear.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -278,6 +281,17 @@ public class cashierss extends javax.swing.JFrame {
         jPanel2.add(jPanel3);
         jPanel3.setBounds(0, 0, 920, 40);
 
+        display1.setBackground(new java.awt.Color(0, 204, 204));
+        display1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        display1.setText("DISPLAY");
+        display1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                display1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(display1);
+        display1.setBounds(140, 370, 90, 30);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -316,7 +330,7 @@ public class cashierss extends javax.swing.JFrame {
     }//GEN-LAST:event_firstnameActionPerformed
 
     private void displayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayActionPerformed
-        displayData();
+
     }//GEN-LAST:event_displayActionPerformed
 
     private void tablecashierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablecashierMouseClicked
@@ -337,6 +351,26 @@ public class cashierss extends javax.swing.JFrame {
     }//GEN-LAST:event_tablecashierMouseClicked
 
     private void insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertActionPerformed
+        
+        if (firstname.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Firstname!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(lastname.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Lastname", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if (gender.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Gender!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(status.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type your Status!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;      
+        }else if(date.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type the Transaction Date!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;      
+        }           
+        
+        
+        
         db_configuration dbc = new db_configuration();
         dbc.insertData("INSERT INTO tbl_cashier(c_firstname, c_lastname, c_gender,c_status, c_transactdate) "
                 + "VALUES ('"+firstname.getText()+"', '"+lastname.getText()+"','"+gender.getText()+"','"+status.getText()+"','"+date.getText()+"')");
@@ -393,6 +427,10 @@ public class cashierss extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel10MouseClicked
 
+    private void display1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_display1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_display1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -433,6 +471,7 @@ public class cashierss extends javax.swing.JFrame {
     private javax.swing.JTextField date;
     private javax.swing.JButton delete;
     private javax.swing.JButton display;
+    private javax.swing.JButton display1;
     private javax.swing.JTextField firstname;
     private javax.swing.JTextField gender;
     private javax.swing.JTextField id;

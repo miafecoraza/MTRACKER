@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,6 +37,13 @@ public class loginForm extends javax.swing.JFrame {
     public loginForm() {
         initComponents();
     }
+    
+    public String hashPassword(String password) throws NoSuchAlgorithmException {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(password.getBytes());
+            byte[] digest = md.digest();
+            return String.format("%064x", new java.math.BigInteger(1, digest));
+}
     
     Color hover=new Color(0,204,204);
     Color defbutton= new Color(0,102,102);
@@ -252,69 +261,44 @@ public class loginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelMouseClicked
 
     private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
-        PreparedStatement st;      
+        PreparedStatement ps;      
         ResultSet rs;
-        
+
         // get the username & password
         String user = username.getText();
         String pass = String.valueOf(password.getPassword());
-        
-        //create a select query to check if the username and the password exist in the database
-        String query = "SELECT * FROM `user_db` WHERE `u_username` = ? AND `u_password` = ?";
-        
-        // show a message if the username or the password fields are empty
-       
-        if(pass.trim().equals("user"))
-        {
-            JOptionPane.showMessageDialog(null, "Enter Your Username", "Empty Username", 2);
-        }
-        else if(user.trim().equals("pass"))
-        {
-            JOptionPane.showMessageDialog(null, "Enter Your Password", "Empty Password", 2);
-        }else
-            
-        {
-            
+
+        String query = "SELECT * FROM `user_db` WHERE `u_username`= ? AND `u_password` = ?";
+
             try {
-            st = db_login.getConnection().prepareStatement(query);
-            
-            st.setString(1, user);
-            st.setString(2, pass);
-            rs = st.executeQuery();
-            
-            if(rs.next())
-            {
-                // show a new form
-                dashBoard db = new dashBoard();
-                db.setVisible(true);
-                db.pack();
-                if(rs.next()){
-                    
-               user =rs.getString("user");
-               
-               dashBoard da = new dashBoard();
-               da.setVisible(true);
-               accountSettings set = new accountSettings();
-               da.maindesktop.add(set).setVisible(true);                 
-               set.getContentPane().add(user_name);
-               set.pack();
-               set.setVisible(true);
+                ps = db_login.getConnection().prepareStatement(query);
+
+                ps.setString(1, user);
+                ps.setString(2, hashPassword(pass)); // hash the password before querying the database
+
+                rs = ps.executeQuery();
+
+                if(rs.next())
+                {
+                    dashBoard db = new dashBoard();
+                    db.setVisible(true);
+                    db.pack();
+                    db.setLocationRelativeTo(null);
+
+                    db.userni.setText("Welcome "+user+ "!");
+       
+                    this.dispose();
+
                 }
-                db.setLocationRelativeTo(null);
-                // close the current form(login form)
-                this.dispose();           
-                
-            }else{
-                // error message
-                JOptionPane.showMessageDialog(null, "Invalid Username / Password","Login Error",2);
-            }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(loginForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
-        }
- 
+                else{
+                    JOptionPane.showMessageDialog(null, "Incorrect Username or Password");
+                }
+
+                }catch (SQLException ex) {
+                    Logger.getLogger(loginForm.class.getName()).log(Level.SEVERE, null, ex);
+                }catch (NoSuchAlgorithmException ex) {
+                    Logger.getLogger(loginForm.class.getName()).log(Level.SEVERE, null, ex);
+                }
  
         
     }//GEN-LAST:event_loginMouseClicked

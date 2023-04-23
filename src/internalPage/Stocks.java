@@ -104,7 +104,7 @@ public class Stocks extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(delete);
-        delete.setBounds(100, 380, 90, 30);
+        delete.setBounds(100, 370, 90, 30);
 
         milktea_table.setBackground(new java.awt.Color(0, 204, 204));
         milktea_table.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -126,7 +126,7 @@ public class Stocks extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(DELETE);
-        DELETE.setBounds(560, 380, 90, 30);
+        DELETE.setBounds(560, 370, 90, 30);
 
         msize.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(msize);
@@ -168,7 +168,7 @@ public class Stocks extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(220, 380, 90, 30);
+        jButton2.setBounds(220, 370, 90, 30);
 
         update.setBackground(new java.awt.Color(0, 204, 204));
         update.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -179,7 +179,7 @@ public class Stocks extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(update);
-        update.setBounds(450, 380, 90, 30);
+        update.setBounds(450, 370, 90, 30);
 
         insert.setBackground(new java.awt.Color(0, 204, 204));
         insert.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -190,7 +190,7 @@ public class Stocks extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(insert);
-        insert.setBounds(330, 380, 90, 30);
+        insert.setBounds(330, 370, 90, 30);
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -254,7 +254,7 @@ public class Stocks extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -329,6 +329,21 @@ public class Stocks extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_milktea_tableMouseClicked
 
     private void insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertActionPerformed
+       
+        if (mflavor.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type the Flavor!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(mprice.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type the Price", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if (mquan.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type the Quantity!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(msize.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please type the Size!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;      
+        }      
+            
         db_configuration dbc = new db_configuration();
         dbc.insertData("INSERT INTO tbl_milktea(m_flavor, m_price, m_quan,m_size) "
                 + "VALUES ('"+mflavor.getText()+"', '"+mprice.getText()+"','"+mquan.getText()+"','"+msize.getText()+"')");
